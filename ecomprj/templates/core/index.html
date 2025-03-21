@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECOMMERCE</title>
-</head>
-
-<body>
-    <h1>Welcome to my Shop</h1>
-
-</body>
-
-</html>
+{% extends 'partials/base.html' %}
+{% load static%}
+{%block content%}
+<h1>Welcome to my Shop</h1>
+<h2>Products</h2>
+<img src="{% get_media_prefix %}lordkrishna.jpg" alt="" widht="100px" height="100px">
+{%endblock content%}
