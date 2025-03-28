@@ -1,25 +1,30 @@
 {% extends 'partials/base.html' %}
 {% load static%}
 {%block content%}
-<h1>SIGN UP PAGE</h1>
-<form method="POST">
-    {% csrf_token %}
-    <!-- <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control" id="username">
-
+<h2>Register</h1>
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{form.errors}}
     </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email">
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{form.username}}
+        </div>
+        <div class="mb-3">
+            {{form.email}}
 
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password">
-    </div> -->
-    {{form.as_p}}
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        </div>
+        <div class="mb-3">
+            {{form.password1}}
+        </div>
+        <div class="mb-3">
+            {{form.password2}}
 
-{%endblock content%}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    {%endblock content%}
