@@ -1,0 +1,17 @@
+{% extends 'partials/base.html' %}
+{% load static%}
+{%block content%}
+<h2>Login</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="email" class="form-control" name="email" placeholder="Username">
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+    {% endblock content %}
