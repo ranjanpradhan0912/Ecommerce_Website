@@ -48,7 +48,26 @@
         </nav>
     </div>
     <!-- Navbar Section Ends -->
+
     <div class="container">
+        <!-- Message Section Starts-->
+        <br>
+        {% if messages %}
+        {% for message in messages%}
+        <div class="alert alert-{{message.tags}}" role="alert" id="alert">
+            <strong>{{message}}</strong>
+            {{form.errors}}
+        </div>
+        {% endfor%}
+        {% endif %}
+        <script>
+            setTimeout(() => {
+                let alertElement = document.getElementById('alert');
+                let alertInstance = bootstrap.Alert.getOrCreateInstance(alertElement);
+                alertInstance.close();
+            }, 3000);
+        </script>
+        <!-- Message Section Ends -->
         {%block content%}
         {%endblock content%}
     </div>
